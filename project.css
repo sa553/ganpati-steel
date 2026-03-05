@@ -4,7 +4,7 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-body { background: #0a0a0a; color: #ffffff; line-height: 1.6; }
+body { background: #0a0a0a; color: #ffffff; line-height: 1.6; overflow-x: hidden; }
 
 /* ---------------- Fixed Header ---------------- */
 header {
@@ -12,7 +12,9 @@ header {
     padding: 20px 80px; background: #000; border-bottom: 1px solid #222;
     position: fixed; top: 0; width: 100%; z-index: 1000;
 }
-
+.projecthero-text h1 { font-size: 48px; margin-bottom: 15px; }
+.projecthero-text span { color: #c1914b; font-style: italic; }
+.projecthero-text p { color: #aaa; font-weight: bold; font-size: 18px; }
 .logo { display: flex; align-items: center; gap: 12px; }
 .logo img { height: 40px; width: auto; }
 .logo span { font-size: 26px; font-weight: 700; text-transform: uppercase; }
@@ -42,7 +44,6 @@ nav a:hover, nav a.active { color: #c1914b; }
 }
 
 .projecthero-text h1 { font-size: 48px; margin-bottom: 20px; }
-.projecthero-text span { color: #ff7a00; font-style: italic; }
 
 /* ---------------- Filter Bar ---------------- */
 .filter-bar {
@@ -108,6 +109,33 @@ footer { padding: 30px 80px; background: #000; border-top: 1px solid #222; }
 .social-links { display: flex; gap: 25px; }
 .social-item { color: #888; text-decoration: none; display: flex; align-items: center; gap: 8px; font-size: 18px; }
 
-/* ---------------- Responsive ---------------- */
-@media (max-width: 1200px) { .project-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 600px) { .project-grid { grid-template-columns: 1fr; } }
+/* ---------------- Responsive Fixes ---------------- */
+
+/* Laptop / Tablets */
+@media (max-width: 1200px) { 
+    header, .projecthero, .filter-bar, .gallery-wrapper, footer { padding-left: 40px; padding-right: 40px; }
+    .project-grid { grid-template-columns: repeat(2, 1fr); } 
+}
+
+/* Mobile Phones */
+@media (max-width: 768px) {
+    header { padding: 15px 20px; flex-direction: column; }
+    .logo span { font-size: 20px; }
+    nav { margin-top: 10px; }
+    nav a { margin: 0 8px; font-size: 14px; }
+
+    /* Mobile par header bada ho jata hai toh top aur margin badhana zaroori hai */
+    .projecthero-banner { top: 105px; font-size: 16px; }
+    .projecthero { margin-top: 145px; padding: 0 20px; height: 35vh; text-align: center; }
+    .projecthero-text h1 { font-size: 32px; }
+    
+    .filter-bar { top: 145px; padding: 15px 20px; gap: 8px; }
+    .filter-btn { padding: 6px 12px; font-size: 12px; }
+
+    .gallery-wrapper { padding: 20px; }
+    .project-grid { grid-template-columns: 1fr; gap: 20px; }
+    
+    .footer-container { flex-direction: column; gap: 20px; text-align: center; }
+    .social-links { justify-content: center; }
+    .close-lightbox { top: 10px; right: 20px; font-size: 40px; }
+}
