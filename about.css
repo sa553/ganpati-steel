@@ -7,11 +7,10 @@
 }
 
 body {
-    background: #0a0a0a; /* Pure Dark Background */
+    background: #0a0a0a;
     color: #ffffff;
     line-height: 1.6;
 }
-
 
 /* ---------------- Header (FIXED) ---------------- */
 header {
@@ -21,38 +20,19 @@ header {
     padding: 20px 80px;
     background: #000;
     border-bottom: 1px solid #222;
-    /* Fixed Logic */
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 1000;
 }
 
-nav a {
-    margin: 0 15px;
-    text-decoration: none;
-    color: #888; /* Grey color for inactive links */
-    font-size: 16px; 
-    transition: 0.3s;
-}
-
-nav a:hover, nav a.active {
-    color: #c1914b; /* Standardized Gold Accent */
-    font-size: 16px; 
-    font-weight: normal; 
-}
-
-/* ---------------- Logo ---------------- */
 .logo {
     display: flex;
     align-items: center;
     gap: 12px;
 }
 
-.logo img {
-    height: 40px;
-    width: auto;
-}
+.logo img { height: 40px; width: auto; }
 
 .logo span {
     font-size: 26px;
@@ -61,20 +41,28 @@ nav a:hover, nav a.active {
     text-transform: uppercase;
 }
 
+nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #888;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+nav a:hover, nav a.active { color: #c1914b; }
+
 /* ---------------- Top Banner (FIXED) ---------------- */
 .top-banner {
     width: 100%;
-    background: #000; 
+    background: #000;
     color: #fff;
     font-weight: bold;
     font-size: 20px;
     height: 40px;
     line-height: 40px;
     overflow: hidden;
-    /* Fixed Logic - Positioned below Header */
     position: fixed;
-    top: 81px; /* Header height approx */
-    width: 100%;
+    top: 81px; /* Header height offset */
     z-index: 999;
 }
 
@@ -83,31 +71,39 @@ nav a:hover, nav a.active {
     white-space: nowrap;
     position: absolute;
     left: 100%;
-    animation: scrollText 10s linear infinite;
+    animation: scrollText 15s linear infinite;
 }
 
 @keyframes scrollText {
     0% { transform: translateX(0); }
-    100% { transform: translateX(-110vw); }
+    100% { transform: translateX(-150vw); }
 }
 
-/* ---------------- Hero / About Section (ADJUSTED FOR FIX) ---------------- */
+/* ---------------- Hero / About Section ---------------- */
 .abouthero {
     padding: 50px 80px;
-    /* Header (81px) + Banner (40px) = 121px offset */
-    margin-top: 121px; 
+    margin-top: 121px; /* Header + Banner offset */
     min-height: calc(100vh - 121px);
     background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url("image/about.jpeg");
     background-size: cover;
     background-position: center;
+    display: flex;
+    align-items: center;
 }
 
 .abouthero-container {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    gap: 80px;
+    gap: 50px;
     flex-wrap: wrap;
+    width: 100%;
+}
+
+.abouthero-text {
+    flex: 1;
+    min-width: 300px;
+    max-width: 50%;
 }
 
 .abouthero-text, .abouthero-right text {
@@ -121,7 +117,7 @@ nav a:hover, nav a.active {
 }
 
 .abouthero-text span, .abouthero-right span {
-    color: #ff7a00;
+    color: #c1914b;
     font-style: italic;
 }
 
@@ -130,6 +126,34 @@ nav a:hover, nav a.active {
     font-size: 16px;
     line-height: 1.6;
     margin-bottom: 15px;
+    text-align: justify;
+    font-weight: bold;
+}
+
+.btn{
+    background:#c1914b;
+    padding:10px 15px;
+    text-decoration:none;
+    color:white;
+    border-radius:12px;
+    transition:0.3s ease;
+    display:inline-block;
+    font-size:16px;
+    min-width:150px;
+    text-align:center;
+}
+
+.btn:hover{
+    background:#ff9500;
+    box-shadow:0 0 15px rgba(255,122,0,0.6);
+    transform:translateY(-3px);
+}
+
+.abouthero-text p {
+    color: #aaa;
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 20px;
     text-align: justify;
     font-weight: bold;
 }
@@ -147,46 +171,30 @@ nav a:hover, nav a.active {
     margin-bottom: 20px;
 }
 
-/* ---------------- Buttons / Stats ---------------- */
-.btn {
-    background: #ff7a00;
-    padding: 10px 15px;
-    text-decoration: none;
-    color: white;
-    border-radius: 12px;
-    transition: 0.3s ease;
-    display: inline-block;
-    font-size: 16px;
-    min-width: 150px;
-    text-align: center;
-}
-
-.btn:hover {
-    background: #ff9500;
-    box-shadow: 0 0 15px rgba(255,122,0,0.6);
-    transform: translateY(-3px);
-}
-
+/* ---------------- Stats ---------------- */
 .stats {
     display: flex;
     gap: 40px;
-    margin-top: 40px;
-}
-
-.stats h2 {
-    font-size: 40px;
-    color: #ff7a00;
+    margin-top: 30px;
+    align-items: center;
 }
 
 .rating-number {
     display: flex;
     align-items: center;
-    gap: 5px;
+    gap: 10px;
+}
+
+.stats h2 {
+    font-size: 40px;
+    color: #c1914b;
+    line-height: 1;
 }
 
 .stars {
-    color: #ff7a00;
-    font-size: 28px;
+    color: #c1914b;
+    font-size: 24px;
+    display: flex;
 }
 
 /* ---------------- Footer ---------------- */
@@ -209,27 +217,71 @@ footer {
     display: flex;
     align-items: center;
     gap: 8px;
+    transition: 0.3s;
 }
+.social-item:hover { color: #c1914b; }
 
-/* ---------------- Responsive ---------------- */
-@media (max-width: 900px) {
-    .abouthero-text, .abouthero-right {
-        max-width: 100%;
-    }
-}
-
+/* ---------------- MOBILE RESPONSIVE (PHONE VIEW) ---------------- */
 @media (max-width: 768px) {
-    .top-banner {
-        font-size: 16px;
-        height: 35px;
-        line-height: 35px;
-        top: 81px;
+    header {
+        padding: 15px 20px;
+        flex-direction: column;
+        height: auto;
     }
-}
 
-@media (max-width: 480px) {
-    .abouthero { padding: 30px 20px; }
-    .abouthero-text h1 { font-size: 36px; }
-    .btn { min-width: auto; }
-    .top-banner { font-size: 14px; height: 30px; line-height: 30px; }
+    nav {
+        margin-top: 15px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    nav a { margin: 0 5px; font-size: 14px; }
+
+    .top-banner {
+        top: 105px; /* Mobile header height adjustment */
+        font-size: 16px;
+    }
+
+    .abouthero {
+        margin-top: 145px;
+        padding: 40px 20px;
+        text-align: center;
+    }
+
+    .abouthero-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .abouthero-text {
+        max-width: 100%;
+        min-width: unset;
+    }
+
+    .abouthero-text h1 { font-size: 32px; }
+    .abouthero-text p { font-size: 16px; text-align: center; }
+
+    .abouthero-right {
+        max-width: 100%;
+        min-width: unset;
+    }
+
+    .stats {
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .stats h2 { font-size: 30px; }
+
+    footer { padding: 30px 20px; }
+    .footer-container {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
 }
