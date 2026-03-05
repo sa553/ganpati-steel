@@ -7,9 +7,10 @@
 }
 
 body {
-    background: #0a0a0a; /* Pure Dark Background */
+    background: #0a0a0a;
     color: #ffffff;
     line-height: 1.6;
+    overflow-x: hidden; /* Horizontal scroll rokne ke liye */
 }
 
 /* ---------------- Fixed Header ---------------- */
@@ -20,7 +21,7 @@ header {
     padding: 20px 80px;
     background: #000;
     border-bottom: 1px solid #222;
-    position: fixed; /* Fixed Navbar */
+    position: fixed;
     top: 0;
     width: 100%;
     z-index: 1000;
@@ -32,12 +33,13 @@ header {
     gap: 12px;
 }
 
-.logo img { height: 40px; }
+.logo img { height: 40px; width: auto; }
 
 .logo span {
     font-size: 26px;
     font-weight: 700;
     text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 nav a {
@@ -48,7 +50,7 @@ nav a {
     transition: 0.3s;
 }
 
-nav a:hover, nav a.active { color: #c1914b; } /* Gold Accent */
+nav a:hover, nav a.active { color: #c1914b; }
 
 /* ---------------- Fixed Banner ---------------- */
 .contacttop-banner {
@@ -60,8 +62,8 @@ nav a:hover, nav a.active { color: #c1914b; } /* Gold Accent */
     height: 40px;
     line-height: 40px;
     overflow: hidden;
-    position: fixed; /* Fixed Banner */
-    top: 81px;
+    position: fixed;
+    top: 81px; /* Header height approx */
     z-index: 999;
 }
 
@@ -89,40 +91,40 @@ nav a:hover, nav a.active { color: #c1914b; } /* Gold Accent */
 }
 
 .servicehero-text h1 { font-size: 48px; margin-bottom: 15px; }
-.servicehero-text span { color: #ff7a00; font-style: italic; }
-.servicehero-text p { color: #aaa; font-weight: bold; }
+.servicehero-text span { color: #c1914b; font-style: italic; }
+.servicehero-text p { color: #aaa; font-weight: bold; font-size: 18px; }
 
 /* ---------------- 4-Column Grid Section ---------------- */
 .service-images {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Exactly 4 columns per row */
+    grid-template-columns: repeat(4, 1fr); /* Laptop par 4 columns */
     gap: 30px;
     padding: 80px 100px;
     background: #0a0a0a;
 }
 
 .service-card {
-    background: #1a1a1a; /* Thoda light grey background */
+    background: #1a1a1a;
     border: 1px solid #333;
     padding: 20px;
-    border-radius: 15px; /* Smooth rounded corners */
+    border-radius: 15px;
     transition: 0.3s ease;
     text-decoration: none;
     color: inherit;
     display: flex;
     flex-direction: column;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
 }
 
 .service-card:hover {
-    border-color: #c1914b; /* Gold border on hover */
-    transform: translateY(-10px); /* Lift effect */
+    border-color: #c1914b;
+    transform: translateY(-10px);
     background: #222;
 }
 
 .service-card img {
     width: 100%;
-    height: 200px; /* Fixed height for consistency */
+    height: 200px;
     object-fit: cover;
     border-radius: 10px;
     margin-bottom: 20px;
@@ -132,7 +134,7 @@ nav a:hover, nav a.active { color: #c1914b; } /* Gold Accent */
     color: #c1914b; 
     font-size: 20px; 
     margin-bottom: 12px;
-    border-bottom: 1px solid #c1914b; /* Heading underline effect */
+    border-bottom: 1px solid #c1914b;
     display: inline-block;
     padding-bottom: 5px;
     width: fit-content;
@@ -142,10 +144,9 @@ nav a:hover, nav a.active { color: #c1914b; } /* Gold Accent */
     color: #888; 
     font-size: 15px; 
     line-height: 1.5;
-    text-align: left; /* Clean left alignment */
 }
 
-/* ---------------- Footer (Large Font Size) ---------------- */
+/* ---------------- Footer ---------------- */
 footer {
     padding: 40px 80px;
     background: #000;
@@ -156,38 +157,81 @@ footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
 }
 
-.footer-container p {
-    font-size: 18px; /* Increased font size */
-    color: #888;
-}
-
+.footer-container p { font-size: 18px; color: #888; }
 .social-links { display: flex; gap: 30px; }
-
 .social-item {
     color: #888;
     text-decoration: none;
     display: flex;
     align-items: center;
     gap: 12px;
-    font-size: 18px; /* Increased font size */
+    font-size: 18px;
     transition: 0.3s;
 }
 
-.social-item i {
-    font-size: 24px; /* Larger social icons */
-}
+/* ---------------- Responsive Configurations (Mobile & Tablet) ---------------- */
 
-.social-item:hover { color: #c1914b; }
-
-/* ---------------- Responsive ---------------- */
+/* Tablet View */
 @media (max-width: 1200px) {
-    .service-images { grid-template-columns: repeat(2, 1fr); padding: 40px; }
+    header { padding: 20px 40px; }
+    .servicehero { padding: 0 40px; }
+    .service-images { 
+        grid-template-columns: repeat(2, 1fr); /* 2 Columns per row */
+        padding: 60px 40px; 
+    }
+    footer { padding: 40px 40px; }
 }
 
-@media (max-width: 650px) {
-    .service-images { grid-template-columns: 1fr; }
-    header, footer { padding: 20px; }
-    .footer-container { flex-direction: column; gap: 20px; text-align: center; }
+/* Mobile Phone View */
+@media (max-width: 768px) {
+    header {
+        padding: 15px 20px;
+        flex-direction: column; /* Logo upar, Nav niche */
+        height: auto;
+    }
+
+    nav {
+        margin-top: 15px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    nav a { margin: 0 5px; font-size: 14px; }
+
+    .contacttop-banner {
+        top: 105px; /* Mobile header bada hota hai isliye gap badhaya */
+        font-size: 16px;
+    }
+
+    .servicehero {
+        margin-top: 145px;
+        padding: 0 20px;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .servicehero-text h1 { font-size: 32px; }
+    .servicehero-text p { font-size: 16px; }
+
+    .service-images { 
+        grid-template-columns: 1fr; /* Single column */
+        padding: 40px 20px; 
+        gap: 20px;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        gap: 25px;
+        text-align: center;
+    }
+
+    .social-links {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
 }
