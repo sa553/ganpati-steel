@@ -48,7 +48,7 @@ nav a:hover, nav a.active { color: #c1914b; }
 /* ---------------- Filter Bar ---------------- */
 .filter-bar {
     background: #0f0f0f; padding: 20px 80px; display: flex; gap: 12px;
-    flex-wrap: wrap; position: sticky; top: 121px; z-index: 998;
+    flex-wrap: wrap;  top: 121px; z-index: 998;
 }
 
 .filter-btn {
