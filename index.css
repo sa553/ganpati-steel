@@ -18,7 +18,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 25px 97px 25px 100px; 
+    padding: 20px 80px;
     background: #000;
     border-bottom: 1px solid #222;
     /* Fixed Logic */
@@ -32,16 +32,17 @@ nav a {
     margin: 0 15px;
     text-decoration: none;
     color: #888; /* Grey color for inactive links */
-    font-size: 20px; /* Standardized to match About page */
+    font-size: 16px; 
     transition: 0.3s;
-    margin-right: 23px;
 }
 
 nav a:hover, nav a.active {
     color: #c1914b; /* Standardized Gold Accent */
-    font-size: 20px; /* Keeps size consistent on hover/active */
-    font-weight: normal; /* Optional: Remove bold if size feels different */
+    font-size: 16px; 
+    font-weight: normal; 
 }
+
+
 
 /* ---------------- Buttons ---------------- */
 .btn{
@@ -72,39 +73,28 @@ nav a:hover, nav a.active {
 }
 
 /* ---------------- Top Banner (FIXED) ---------------- */
+
 .top-banner {
     width: 100%;
-    background: #000; /* Match black theme */
-    color: #fff;
-    font-weight: bold;
-    font-size: 25px;
-    height: 40px;
-    line-height: 40px;
-    overflow: hidden;
-    /* Fixed Logic - Positioned below Header */
-    position: fixed;
-    top: 101px; /* Adjust based on header height */
-    width: 100%;
-    z-index: 999;
-}
-
-.contacttop-banner {
-    width: 100%;
-    background: #000;
+    background: #000; 
     color: #fff;
     font-weight: bold;
     font-size: 20px;
     height: 40px;
     line-height: 40px;
     overflow: hidden;
-    position: relative;
+    /* Fixed Logic - Positioned below Header */
+    position: fixed;
+    top: 81px; /* Header height approx */
+    width: 100%;
+    z-index: 999;
 }
 
 .top-banner span, .contacttop-banner span {
     display: inline-block;
     white-space: nowrap;
     position: absolute;
-    left: 100%; /* start completely offscreen right */
+    left: 100%;
     animation: scrollText 10s linear infinite;
 }
 
@@ -161,26 +151,25 @@ nav a:hover, nav a.active {
 }
 
 /* ---------------- Logo ---------------- */
-.logo{
-    display:flex;
-    align-items:center;
-    gap:12px;
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
 
-.logo img{
-    height:50px;
-    width:auto;
+.logo img {
+    height: 40px;
+    width: auto;
 }
 
-.logo span{
-    font-size:33px;
-    font-weight:700;
-    letter-spacing:1px;
-    text-transform:uppercase;
+.logo span {
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
 }
 
 
-/* ---------------- Footer ---------------- */
 /* ---------------- Footer ---------------- */
 footer {
     padding: 30px 80px;
@@ -194,35 +183,13 @@ footer {
     align-items: center;
 }
 
-/* Footer Copyright Text ka size badhane ke liye */
-.footer-container p {
-    font-size: 20px; /* Pehle ye 14px tha */
-    color: #fffff;
-}
-
-.social-links { 
-    display: flex; 
-    gap: 30px; /* Space thoda aur badhaya gaya hai */
-}
-
+.social-links { display: flex; gap: 25px; }
 .social-item {
     color: #888;
     text-decoration: none;
     display: flex;
     align-items: center;
-    gap: 10px;
-    /* Social Text ka size badhane ke liye */
-    font-size: 20px; 
-    transition: 0.3s;
-}
-
-/* Social Icons (Instagram/Facebook) ka size badhane ke liye */
-.social-item i {
-    font-size: 22px; /* Icons ko thoda prominent banaya hai */
-}
-
-.social-item:hover {
-    color: #c1914b;
+    gap: 8px;
 }
 
 /* Responsive adjustment */
