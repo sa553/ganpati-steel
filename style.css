@@ -1,0 +1,360 @@
+/* ---------------- Reset & Base ---------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: #0a0a0a; /* Pure Dark Background */
+    color: #ffffff;
+    line-height: 1.6;
+}
+
+
+/* ---------------- Header (FIXED) ---------------- */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 80px;
+    background: #000;
+    border-bottom: 1px solid #222;
+    /* Fixed Logic */
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #888; /* Grey color for inactive links */
+    font-size: 16px; /* Standardized to match About page */
+    transition: 0.3s;
+}
+
+nav a:hover, nav a.active {
+    color: #c1914b; /* Standardized Gold Accent */
+    font-size: 16px; /* Keeps size consistent on hover/active */
+    font-weight: normal; /* Optional: Remove bold if size feels different */
+}
+
+/* ---------------- Buttons ---------------- */
+.btn{
+    background:#ff7a00;
+    padding:10px 15px;
+    text-decoration:none;
+    color:white;
+    border-radius:12px;
+    transition:0.3s ease;
+    display:inline-block;
+    font-size:16px;
+    min-width:150px;
+    text-align:center;
+}
+
+.btn:hover{
+    background:#ff9500;
+    box-shadow:0 0 15px rgba(255,122,0,0.6);
+    transform:translateY(-3px);
+}
+
+.outline{
+    border:1px solid white;
+    padding:10px 20px;
+    border-radius:25px;
+    color:white;
+    text-decoration:none;
+}
+
+/* ---------------- Top Banner (FIXED) ---------------- */
+.top-banner, .contacttop-banner {
+    width: 100%;
+    background: #000;
+    color: #fff;
+    font-weight: bold;
+    font-size: 20px;
+    height: 40px;
+    line-height: 40px;
+    overflow: hidden;
+    position: fixed; /* Fixed Banner */
+    top: 81px;
+    z-index: 999;
+}
+
+.top-banner span, .contacttop-banner span {
+    display: inline-block;
+    white-space: nowrap;
+    position: absolute;
+    left: 100%; /* start completely offscreen right */
+    animation: scrollText 10s linear infinite;
+}
+
+/* Full right-to-left animation */
+@keyframes scrollText {
+    0% {
+        transform: translateX(0); 
+    }
+    100% {
+        transform: translateX(-110vw); /* move fully past left edge */
+    }
+}
+
+/* ---------------- HERO / CONTACT HERO (ADJUSTED FOR FIXED HEADER) ---------------- */
+.hero,
+.contacthero,
+.abouthero {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 50px 80px;
+    /* Header (81px) + Banner (40px) offset */
+    margin-top: 121px; 
+    min-height: calc(100vh - 121px);
+    background-size: cover;
+    background-position: center;
+    gap: 50px;
+    flex-wrap: wrap;
+}
+
+.hero{
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url("image/Home.jpeg");
+}
+
+.contacthero{
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url("image/ContactBackground.jpeg");
+}
+
+.abouthero{
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url("image/about.jpeg");
+}
+
+.contacthero-text, .abouthero-text,
+.hero-text{
+    max-width: 45%;
+}
+
+.contacthero-text h1, .abouthero-text h1,
+.hero-text h1{
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.contacthero-text span, .abouthero-text span,
+.hero-text span{
+    color: #ff7a00;
+    font-style: italic;
+}
+
+.abouthero-text p,
+.hero-text p{
+    color: #aaa;
+    font-size: 20px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    text-align: justify;
+    font-weight: bold;
+}
+
+.contacthero-text p {
+    color: #aaa;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    text-align: justify;
+    font-weight: bold;
+}
+
+/* ---------------- Contact Form ---------------- */
+.contacthero-form{
+    max-width: 45%;
+    background: rgba(255,255,255,0.05);
+    padding: 30px;
+    border-radius: 15px;
+}
+
+.contacthero-form h2{
+    color: #ff7a00;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.contacthero-form input,
+.contacthero-form textarea{
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    background: #1a1a1a;
+    color: #fff;
+}
+
+.contacthero-form textarea{
+    resize: none;
+}
+
+.contacthero-form button{
+    width: 100%;
+    background: #ff7a00;
+    color: white;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.contacthero-form button:hover{
+    background: #ff9500;
+    box-shadow: 0 0 15px rgba(255,122,0,0.6);
+}
+
+/* ---------------- Logo ---------------- */
+.logo{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo img{
+    height: 40px;
+    width: auto;
+}
+
+.logo span{
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+
+/* ---------------- Footer ---------------- */
+footer {
+    padding: 30px 80px;
+    background: #000;
+    border-top: 1px solid #222;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.social-links { display: flex; gap: 25px; }
+.social-item {
+    color: #888;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* ---------------- Buttons Container ---------------- */
+.buttons{
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+/* ---------------- Stats ---------------- */
+.stats{
+    display: flex;
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.stats h2{
+    font-size: 40px;
+    color: #ff7a00;
+}
+
+.rating-number{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.stars{
+    color: #ff7a00;
+    font-size: 28px;
+}
+
+/* ---------------- Hero Image ---------------- */
+.hero-img img{
+    width: 450px;
+    border-radius: 20px;
+}
+
+/* ---------------- Contact Info List ---------------- */
+.contact-list{
+    list-style-type: disc;
+    list-style-position: outside;
+    padding-left: 25px;
+    color: #aaa;
+    line-height: 1.6;
+}
+
+.contact-list li{
+    margin-bottom: 10px;
+}
+
+/* ---------------- Responsive ---------------- */
+@media (max-width: 900px){
+    .contacthero-text ,.abouthero-text,
+    .contacthero-form{
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px){
+    .contacthero, .hero, .abouthero {
+        padding: 30px 20px;
+    }
+
+    .contacthero-text h1, .hero-text h1, .abouthero-text h1 {
+        font-size: 36px;
+    }
+
+    .contacthero-form h2{
+        font-size: 20px;
+    }
+
+    .btn{
+        padding: 8px 12px;
+        font-size: 14px;
+        min-width: auto;
+    }
+}
+
+/* Responsive adjustments for Fixed Nav/Banner */
+@media (max-width: 768px) {
+    .top-banner, .contacttop-banner {
+        font-size: 16px;
+        height: 35px;
+        line-height: 35px;
+        top: 81px; /* Maintain position */
+    }
+    .top-banner span, .contacttop-banner span {
+        animation-duration: 15s;
+    }
+}
+
+@media (max-width: 480px) {
+    .top-banner, .contacttop-banner {
+        font-size: 14px;
+        height: 30px;
+        line-height: 30px;
+    }
+    .top-banner span, .contacttop-banner span {
+        animation-duration: 20s;
+    }
+}

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ganpati Steel</title>
+<link rel="stylesheet" href="index.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const counters = document.querySelectorAll('.counter');
+
+    counters.forEach(counter => {
+
+        const target = parseInt(counter.getAttribute('data-target'));
+        const duration = 2000; // 2 sec
+        const intervalTime = 20;
+        const totalSteps = duration / intervalTime;
+        const increment = target / totalSteps;
+
+        let current = 0;
+
+        const timer = setInterval(() => {
+            current += increment;
+
+            if (current >= target) {
+                counter.innerText = target + "+";
+                clearInterval(timer);
+            } else {
+                counter.innerText = Math.floor(current);
+            }
+
+        }, intervalTime);
+
+    });
+
+});
+</script>
+
+<header>
+    <div class="logo">
+    <img src="image/Logo.jpeg" alt="Ganpati Steel">
+	<span>Ganpati Steel</span>
+</div>
+    <nav>
+        <a href="index.html" class="active">Home</a>
+        <a href="about.html">About</a>
+		<a href="Services.html">Services</a>
+        <a href="project.html">Projects</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+</header>
+
+
+<div class="top-banner">
+   <span>***** Free Site Visit & Consultation – Contact Us Today! *****</span>
+</div>
+<section class="hero">
+
+    <div class="hero-text">
+
+        <h1>Precision Fabrication for <span>Modern</span> Architecture</h1>
+
+        <p>"We deliver modern aluminium, glass, and steel fabrication solutions with precision, premium quality, and timely project completion.”</p>
+
+        <h2>About Ganpati Steel</h2></br>
+
+        <p>
+            Ganpati Steel is a Gurgaon-based fabrication company delivering premium aluminium, glass, and steel solutions.
+        
+            With more than 20 years of experience in fabrication work..
+        
+            Our focus is on quality materials, precision installation, and long-lasting results.
+        </p>
+
+        <!-- ✅ STATS YAHAN AAYEGA -->
+        <div class="stats">
+            <div>
+                <h2 class="counter" data-target="20">0+</h2>
+                <p>Years Experience</p>
+            </div>
+            <div>
+                <h2 class="counter" data-target="400">0+</h2>
+                <p>Projects Completed</p>
+            </div>
+            <div class="rating">
+                <div class="rating-number">
+                    <h2>4.9</h2>
+                    <span class="stars">&#9733;</span>
+                </div>
+                <p>Client Rating</p>
+            </div>
+        </div>
+
+        <div class="buttons">
+            <a href="project.html" class="btn">View Projects</a>
+			<a href="https://wa.me/919717333401" target="_blank" class="btn">Contact Us</a>
+        </div>
+		
+
+    </div>
+</section>
+</br></br>
+<footer>
+    <div class="footer-container">
+        <p>© 2026 Ganpati Steel | All Rights Reserved</p>
+        <div class="social-links">
+            <a href="https://www.instagram.com/ganpati.steel" class="social-item"><i class="fab fa-facebook"></i> <span>Facebook</span></a>
+            <a href="https://www.instagram.com/ganpati.steel" class="social-item"><i class="fab fa-instagram" style="color: #E4405F;"></i> <span>Instagram</span></a>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

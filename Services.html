@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services | Ganpati Steel</title>
+    <link rel="stylesheet" href="service.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <img src="image/Logo.jpeg" alt="Ganpati Steel">
+        <span>Ganpati Steel</span>
+    </div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="Services.html" class="active">Services</a>
+        <a href="project.html">Projects</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+</header>
+
+<div class="contacttop-banner">
+    <span>***** Free Site Visit & Consultation – Contact Us Today! *****</span>
+</div>
+
+<section class="servicehero">
+    <div class="servicehero-text">
+        <h1>Expert <span>Aluminium, Glass & Steel</span> Fabrication Solutions</h1>
+        <p>
+            Explore our range of customized fabrication services designed to elevate commercial<br/>
+            and residential spaces with precision, style, and durability.
+        </p>
+    </div>
+</section>
+
+<section class="service-images">
+    <a href="project.html?filter=slim" class="service-card">
+        <img src="image/slim.jpeg" alt="Service 1">
+        <h5>Slim Aluminium Partitions</h5>
+        <p>Modern slim aluminium partitions for offices and interiors, offering a sleek design and efficient space division.</p>
+    </a>
+
+    <a href="project.html?filter=telescopic" class="service-card">
+        <img src="image/Telescopic.jpeg" alt="Service 2">
+        <h5>Telescopic Aluminium Doors</h5>
+        <p>Premium telescopic aluminium doors with smooth sliding operation and no bottom track.</p>
+    </a>
+
+    <a href="project.html?filter=sliding" class="service-card">
+        <img src="image/sliding.jpeg" alt="Service 3">
+        <h5>Sliding Aluminium Doors</h5>
+        <p>Modern aluminium sliding doors designed for smooth operation with no bottom track.</p>
+    </a>
+
+    <a href="project.html?filter=railing" class="service-card">
+        <img src="image/aluminium.jpeg" alt="Service 4">
+        <h5>Aluminium Glass Railings</h5>
+        <p>Modern aluminium railings with toughened glass, offering durability and safety.</p>
+    </a>
+
+    <a href="project.html?filter=synchronized" class="service-card">
+        <img src="image/synchronized.jpeg" alt="Service 5">
+        <h5>Synchronized Aluminium Doors</h5>
+        <p>Advanced synchronized aluminium doors where panels move together smoothly.</p>
+    </a>
+
+    <a href="project.html?filter=folding" class="service-card">
+        <img src="image/folding.jpeg" alt="Service 6">
+        <h5>Folding Aluminium Doors</h5>
+        <p>Space-saving folding aluminium doors creating wide open spaces with a modern look.</p>
+    </a>
+
+    <a href="project.html?filter=pvd" class="service-card">
+        <img src="image/pvd.jpeg" alt="Service 7">
+        <h5>PVD Coating Railings</h5>
+        <p>Luxury railing systems with premium PVD coating finish for superior durability.</p>
+    </a>
+
+    <a href="project.html?filter=steel" class="service-card">
+        <img src="image/steel.jpeg" alt="Service 8">
+        <h5>Steel Railings</h5>
+        <p>Strong and durable steel railings designed for balconies and staircases.</p>
+    </a>
+
+    <a href="project.html?filter=invisible" class="service-card">
+        <img src="image/invisible.jpeg" alt="Service 9">
+        <h5>Invisible Balcony Grill</h5>
+        <p>High-tensile invisible grill systems designed to ensure safety while maintaining views.</p>
+    </a>
+
+    <a href="project.html?filter=domal" class="service-card">
+        <img src="image/domal.jpeg" alt="Service 10">
+        <h5>Domal Sliding Windows</h5>
+        <p>Premium Domal aluminium sliding windows known for smooth functionality and durability.</p>
+    </a>
+
+    <a href="project.html?filter=structural" class="service-card">
+        <img src="image/structural.jpeg" alt="Service 11">
+        <h5>Structural Glazing</h5>
+        <p>Modern structural glazing systems creating seamless glass facades.</p>
+    </a>
+    <a href="project.html?filter=design" class="service-card">
+        <img src="image/design.jpeg" alt="Service 11">
+        <h5>Designable Mirrors</h5>
+        <p>Custom-designed mirrors with backlight and front light options, enhancing interiors with modern style and elegant illumination.</p>
+    </a>
+
+<a href="project.html?filter=shower" class="service-card">
+        <img src="image/shower.jpeg" alt="Service 11">
+        <h5>Shower Enclosure</h5>
+        <p>Custom-designed mirrors with backlight and front light options, enhancing interiors with modern style and elegant illumination.</p>
+    </a></section>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const btns = document.querySelectorAll('.filter-btn');
+        const cards = document.querySelectorAll('.project-card');
+
+        // --- Naya logic: URL se filter check karne ke liye ---
+        const urlParams = new URLSearchParams(window.location.search);
+        const filterFromUrl = urlParams.get('filter'); // Jaise 'gate', 'door', etc.
+
+        function applyFilter(filterValue) {
+            // 1. Active button update karein
+            btns.forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.getAttribute('data-filter') === filterValue) {
+                    btn.classList.add('active');
+                }
+            });
+            if (!filterValue) document.querySelector('[data-filter="all"]').classList.add('active');
+
+            // 2. Cards filter karein
+            cards.forEach(card => {
+                if (filterValue === 'all' || !filterValue || card.getAttribute('data-category') === filterValue) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Page load hote hi agar URL mein filter hai toh use apply karein
+        if (filterFromUrl) {
+            applyFilter(filterFromUrl);
+        }
+
+        // --- Purana click logic ---
+        btns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const filterValue = this.getAttribute('data-filter');
+                applyFilter(filterValue);
+            });
+        });
+    });
+</script>
+
+<footer>
+    <div class="footer-container">
+        <p>© 2026 Ganpati Steel | All Rights Reserved</p>
+        <div class="social-links">
+            <a href="https://www.facebook.com/ganpati.steel" class="social-item"><i class="fab fa-facebook"></i> <span>Facebook</span></a>
+            <a href="https://www.instagram.com/ganpati.steel" class="social-item"><i class="fab fa-instagram" style="color: #E4405F;"></i> <span>Instagram</span></a>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

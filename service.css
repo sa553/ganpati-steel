@@ -1,0 +1,193 @@
+/* ---------------- Reset & Base ---------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: #0a0a0a; /* Pure Dark Background */
+    color: #ffffff;
+    line-height: 1.6;
+}
+
+/* ---------------- Fixed Header ---------------- */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 80px;
+    background: #000;
+    border-bottom: 1px solid #222;
+    position: fixed; /* Fixed Navbar */
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo img { height: 40px; }
+
+.logo span {
+    font-size: 26px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #888;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+nav a:hover, nav a.active { color: #c1914b; } /* Gold Accent */
+
+/* ---------------- Fixed Banner ---------------- */
+.contacttop-banner {
+    width: 100%;
+    background: #000;
+    color: #fff;
+    font-weight: bold;
+    font-size: 20px;
+    height: 40px;
+    line-height: 40px;
+    overflow: hidden;
+    position: fixed; /* Fixed Banner */
+    top: 81px;
+    z-index: 999;
+}
+
+.contacttop-banner span {
+    display: inline-block;
+    white-space: nowrap;
+    position: absolute;
+    left: 100%;
+    animation: scrollText 15s linear infinite;
+}
+
+@keyframes scrollText {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-150vw); }
+}
+
+/* ---------------- Hero Section ---------------- */
+.servicehero {
+    margin-top: 121px; /* Offset for Header + Banner */
+    height: 45vh;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url("image/about.jpeg") no-repeat center/cover;
+    display: flex;
+    align-items: center;
+    padding: 0 80px;
+}
+
+.servicehero-text h1 { font-size: 48px; margin-bottom: 15px; }
+.servicehero-text span { color: #ff7a00; font-style: italic; }
+.servicehero-text p { color: #aaa; font-weight: bold; }
+
+/* ---------------- 4-Column Grid Section ---------------- */
+.service-images {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Exactly 4 columns per row */
+    gap: 30px;
+    padding: 80px 100px;
+    background: #0a0a0a;
+}
+
+.service-card {
+    background: #1a1a1a; /* Thoda light grey background */
+    border: 1px solid #333;
+    padding: 20px;
+    border-radius: 15px; /* Smooth rounded corners */
+    transition: 0.3s ease;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.service-card:hover {
+    border-color: #c1914b; /* Gold border on hover */
+    transform: translateY(-10px); /* Lift effect */
+    background: #222;
+}
+
+.service-card img {
+    width: 100%;
+    height: 200px; /* Fixed height for consistency */
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.service-card h5 { 
+    color: #c1914b; 
+    font-size: 20px; 
+    margin-bottom: 12px;
+    border-bottom: 1px solid #c1914b; /* Heading underline effect */
+    display: inline-block;
+    padding-bottom: 5px;
+    width: fit-content;
+}
+
+.service-card p { 
+    color: #888; 
+    font-size: 15px; 
+    line-height: 1.5;
+    text-align: left; /* Clean left alignment */
+}
+
+/* ---------------- Footer (Large Font Size) ---------------- */
+footer {
+    padding: 40px 80px;
+    background: #000;
+    border-top: 1px solid #222;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-container p {
+    font-size: 18px; /* Increased font size */
+    color: #888;
+}
+
+.social-links { display: flex; gap: 30px; }
+
+.social-item {
+    color: #888;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 18px; /* Increased font size */
+    transition: 0.3s;
+}
+
+.social-item i {
+    font-size: 24px; /* Larger social icons */
+}
+
+.social-item:hover { color: #c1914b; }
+
+/* ---------------- Responsive ---------------- */
+@media (max-width: 1200px) {
+    .service-images { grid-template-columns: repeat(2, 1fr); padding: 40px; }
+}
+
+@media (max-width: 650px) {
+    .service-images { grid-template-columns: 1fr; }
+    header, footer { padding: 20px; }
+    .footer-container { flex-direction: column; gap: 20px; text-align: center; }
+}
