@@ -14,7 +14,7 @@ header {
 }
 .projecthero-text h1 { font-size: 48px; margin-bottom: 15px; }
 .projecthero-text span { color: #c1914b; font-style: italic; }
-.projecthero-text p { color: #aaa; font-weight: bold; font-size: 18px; }
+.projecthero-text p { color: #aaa; font-weight: bold; font-size: 16px; }
 .logo { display: flex; align-items: center; gap: 12px; }
 .logo img { height: 40px; width: auto; }
 .logo span { font-size: 26px; font-weight: 700; text-transform: uppercase; }
